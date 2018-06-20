@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!--数据库连接设置 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/db_exam</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">123456</property>
+
+       
+        <!-- 方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- 把session绑定到当前线程中 -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- 显示SQL -->
+        <property name="show_sql">true</property>
+
+        <!-- 自动表更新 -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!-- 自动生成数据库表 -->
+        <mapping class="com.exam.model.Manager"/>
+        <mapping class="com.exam.model.Paper"/>
+        <mapping class="com.exam.model.Question"/>
+        <mapping class="com.exam.model.Student"/>
+        <mapping class="com.exam.model.Exam"/>
+        
+    </session-factory>
+
+</hibernate-configuration>

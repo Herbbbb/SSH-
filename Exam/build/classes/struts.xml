@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	
+	<package name="studentInfo" namespace="/" extends="struts-default">
+		
+		<action name="student" class="com.exam.action.StudentAction">
+			<result name="success">/main.jsp</result>
+			<result name="error">/login.jsp</result>
+			<!-- 节省系统资源，不用带数据 -->
+			<result name="logout" type="redirect">/login.jsp</result>
+			<result name="save" type="redirectAction">student!list</result>
+		</action>
+		
+		<action name="paper" class="com.exam.action.PaperAction">
+			<result name="success">/main.jsp</result>
+			<result name="save" type="redirectAction">paper!paperList</result>
+		</action>
+		
+		<action name="exam" class="com.exam.action.ExamAction">
+			<result name="success">/main.jsp</result>
+		</action>
+		
+		<action name="question" class="com.exam.action.QuestionAction">
+			<result name="success">/main.jsp</result>
+			<result name="save" type="redirectAction">question!list</result>
+		</action>
+		<!-- 管理员登陆配置 -->
+		<action name="manager" class="com.exam.action.ManagerAction">
+			<result name="success">/main.jsp</result>
+			<result name="error">/login2.jsp</result>
+			<!-- 节省系统资源，不用带数据 -->
+			<result name="logout" type="redirect">/login2.jsp</result>
+		</action>
+	</package>
+	
+
+     
+</struts>
